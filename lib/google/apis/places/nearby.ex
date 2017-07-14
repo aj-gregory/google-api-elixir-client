@@ -15,6 +15,7 @@ defmodule Google.Apis.Places.Nearby do
 
   def get(location, params \\ []) do
     params = Keyword.put_new(params, :location, Enum.join(Tuple.to_list(location), ","))
-    get!(URI.encode_query(params)).body
+    get!(URI.encode_query(params))
+    |> build_api_response()
   end
 end
