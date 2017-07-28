@@ -12,7 +12,7 @@ defmodule Google.Apis.Places.Details do
 
   def get(ref) do
     params = [reference: ref]
-    IO.inspect URI.encode_query(params)
-    get!(URI.encode_query(params)).body
+    get!(URI.encode_query(params))
+    |> build_api_response()
   end
 end
